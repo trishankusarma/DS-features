@@ -114,11 +114,14 @@ class Operations{
 
         ll getSum(ll ss, ll se, ll qs, ll qe, ll index, vector<ll> Tree){
 
+            // complete overlap
         	if( ss==qs && se==qe )
         		 return Tree[index];
             
             ll mid = midValue( ss, se ),ls=0,rs=0;
 
+            // find mutual overlap
+            // we are making sure that there would be no cases where no overlap is possible
             if( qs <= mid )
             	ls = getSum( ss, mid, qs, mid, leftChild( index), Tree );
 
